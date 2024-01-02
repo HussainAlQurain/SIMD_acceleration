@@ -310,6 +310,7 @@ int main(int argc, char** argv)
   /* Call genDataset to generate dataset and reference output */
   printf("  * Invoking genDataset .... ");
   genDataset(&args_ref);
+
   printf("Finished\n");
   printf("\n");
 
@@ -332,6 +333,9 @@ int main(int argc, char** argv)
 
   /* Start execution */
   printf("Running \"%s\" implementation:\n", impl_str);
+
+  printf("First dataset entry: %f, %f, %f, %f, %f\n", args.sptPrice[0], args.strike[0], args.rate[0], args.volatility[0], args.otime[0]);
+
 
   printf("  * Invoking the implementation %d times .... ", num_runs);
   for (int i = 0; i < num_runs; i++) {

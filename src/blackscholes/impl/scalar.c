@@ -8,6 +8,7 @@
 
 /* Standard C includes */
 #include <stdlib.h>
+#include <stdio.h>
 
 /* Include common headers */
 #include "common/macros.h"
@@ -18,11 +19,10 @@
 #define inv_sqrt_2xPI 0.39894228040143270286
 #include <math.h>
 
-
 float CNDF(float InputX)
 {
   int sign;
-  
+
   float OutputX;
   float xInput;
   float xNPrimeofX;
@@ -149,7 +149,7 @@ void *impl_scalar(void *args)
     float rate = data->rate[i];
     float volatility = data->volatility[i];
     float otime = data->otime[i];
-    int otype = (data->otype[i] == 'C') ? 1 : 0; // Assuming 'C' for call option, 0 otherwise
+    int otype = (data->otype[i] == 'P') ? 1 : 0; 
 
     // Perform the Black-Scholes calculation
     float price = blackScholes(sptprice, strike, rate, volatility, otime, otype, 0.0);
